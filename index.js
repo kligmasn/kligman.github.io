@@ -8,10 +8,10 @@ function init() {
     scene = new THREE.Scene();
 
     camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 10000);
-    camera.position.z = 500;
+    camera.position.z = 50;
     scene.add(camera);
 
-    geometry = new THREE.CubeGeometry(200, 200, 200);
+    geometry = new THREE.CubeGeometry(20, 20, 20);
     material = new THREE.MeshNormalMaterial();
 
     mesh = new THREE.Mesh(geometry, material);
