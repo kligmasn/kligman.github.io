@@ -16,9 +16,10 @@ function init() {
     scene = new THREE.Scene();
 
     camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 10000);
-    camera.position.z = 500;
+    camera.position.z = 50;
     scene.add(camera);
 
+<<<<<<< HEAD
     controls = new THREE.PointerLockControls( camera );
     scene.add(controls.getObject());
 
@@ -71,6 +72,9 @@ function init() {
 
 
     geometry = new THREE.CubeGeometry(200, 200, 200);
+=======
+    geometry = new THREE.CubeGeometry(20, 20, 20);
+>>>>>>> 1af276e325f4b060f346e3e38bcb22c3f23b63a3
     material = new THREE.MeshNormalMaterial();
 
     mesh = new THREE.Mesh(geometry, material);
@@ -106,5 +110,8 @@ function animate() {
     controls.getObject().translateZ( velocity.z * delta );
     
 
+<<<<<<< HEAD
     renderer.render(scene, camera);
+=======
+>>>>>>> 1af276e325f4b060f346e3e38bcb22c3f23b63a3
 }
