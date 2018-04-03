@@ -26,10 +26,6 @@ scene.add( light );
 
 camera.add(listener);
 
-var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-var material = new THREE.MeshBasicMaterial( {color: "rgb(0, 100, 100)"} );
-var cube = new THREE.Mesh( geometry, material );
-
 var planeGeometry = new THREE.PlaneGeometry(40, 20, 20);
 var planeMaterial = new THREE.MeshPhongMaterial( {
     color: "rgb(0, 200, 200)",
@@ -82,6 +78,9 @@ window.addEventListener('resize', () => {
     renderer.setSize( window.innerWidth, window.innerHeight);
 });
 
+var cubeGroup = new THREE.Group();
+var notAdded = true;
+
 loop();
 function loop(){
     camera.position.y += .1;
@@ -90,24 +89,26 @@ function loop(){
 
     generateCubes();
 
-    cube.scale.x = analyser.getAverageFrequency() / 5;
+    cubeGroup.scale.x = analyser.getAverageFrequency();
     text2.textContent = analyser.getAverageFrequency();
 
     requestAnimationFrame(loop);
     renderer.render(scene, camera);
 }
 
-var notAdded = true;
 function generateCubes(){
-
     if(notAdded){
-        cube.position.set(0, playerSphere.position.y + 20, 0);
-        scene.add( cube );
+        for(var x = 0; x < 5; x++){
+            var cube = new THREE.Mesh( new THREE.BoxGeometry( 1, 1, 1 ), new THREE.MeshBasicMaterial( {color: "rgb(0, 100, 100)"} ) );
+            cube.position.x = x * 2;
+            cubeGroup.add(cube);
+        }
+        scene.add(cubeGroup);
+        cubeGroup.position.set(0, playerSphere.position.y + 20, 0);
         notAdded = false;
     }
-    else if(playerSphere.position.y > cube.position.y){
+    else if(playerSphere.position.y > cubeGroup.position.y){
         notAdded = true;
     }
-    
     
 }
