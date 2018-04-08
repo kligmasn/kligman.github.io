@@ -1,0 +1,51 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Rajdhani" rel="stylesheet"/>
+    <style>
+        body {
+        height: 100%;
+        width: 100%;
+        }
+        div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        }
+        #container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(245, 207, 169);
+        }
+        .splash{
+        position: absolute;
+        z-index: 1;
+        border-radius: 100%;
+        background: linear-gradient(0deg, rgb(30, 115, 230), rgb(70, 155, 270));
+        opacity: 0.5;
+        }
+        #name {
+        color: rgb(30, 115, 230);
+        font-weight: bolder;
+        font-family: 'Rajdhani', sans-serif;
+        opacity: 0;
+        }
+    </style>
+</head>
+<body>
+     
+    <div id="container">
+        <div class="splash el"></div>
+        <div id= "nameHold" >
+            <h1 id = "name">STEVEN KLIGMAN</h1>
+        </div>
+        <div id = "links">
+        </div>
+    </div>
+      
+</body>
+</html>
