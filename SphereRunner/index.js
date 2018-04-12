@@ -100,6 +100,7 @@ function loop(){
 function initGenerateCubes(){
     for(var x = 0; x < 5; x++){
         var cube = new THREE.Mesh( new THREE.BoxGeometry( 1, 1, 1), new THREE.MeshBasicMaterial( {color: "rgb(0, 100, 100)"} ) );
+        cube.position.x = x * Math.floor(Math.random() * 5);
         cubeGroup.add(cube);
     }
     scene.add(cubeGroup);
