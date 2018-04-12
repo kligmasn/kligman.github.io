@@ -78,14 +78,17 @@ window.addEventListener('resize', () => {
     renderer.setSize( window.innerWidth, window.innerHeight);
 });
 
-loop();
 var cubeGroup = new THREE.Group();
+initGenerateCubes();
+
+loop();
+
 function loop(){
     camera.position.y += .1;
     plane.position.y += .1;
     playerSphere.position.y += .1;
-
-    initGenerateCubes();
+    
+    moveCubeGroup();
 
     cubeGroup.scale.x = analyser.getAverageFrequency() / 5;
     text2.textContent = analyser.getAverageFrequency();
@@ -94,16 +97,12 @@ function loop(){
     renderer.render(scene, camera);
 }
 
-var notAdded = true;
 function initGenerateCubes(){
-    if(notAdded){
-        for(var x = 0; x < 5; x++){
-            var cube = new THREE.Mesh( new THREE.BoxGeometry( 1, 1, 1), new THREE.MeshBasicMaterial( {color: "rgb(0, 100, 100)"} ) );
-            cubeGroup.add(cube);
-        }
-        scene.add(cubeGroup);
-        notAdded = false;
+    for(var x = 0; x < 5; x++){
+        var cube = new THREE.Mesh( new THREE.BoxGeometry( 1, 1, 1), new THREE.MeshBasicMaterial( {color: "rgb(0, 100, 100)"} ) );
+        cubeGroup.add(cube);
     }
+    scene.add(cubeGroup);
 }
 
 function moveCubeGroup(){
