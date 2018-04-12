@@ -101,8 +101,11 @@ var notAdded = true;
 function generateCubes(){
 
     if(notAdded){
-        cube.position.set(0, playerSphere.position.y + 20, 0);
-        scene.add( cube );
+        for(var x = 0; x < 5; x++){
+            var cube = new THREE.Mesh( new THREE.BoxGeometry( 1, 1, 1), new THREE.MeshBasicMaterial( {color: "rgb(0, 100, 100)"} ) );
+            cube.position.set(0, playerSphere.position.y + 20, 0);
+            scene.add( cube );
+        }
         notAdded = false;
     }
     else if(playerSphere.position.y > cube.position.y){
